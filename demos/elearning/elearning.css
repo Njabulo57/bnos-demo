@@ -86,7 +86,7 @@ a:hover {
     font-size: 18px;
 }
 header .navbar-brand img {
-    max-height: 39px;
+    max-height: 80px;
 }
 header .navbar-brand {
     padding: 25px 0;
@@ -222,7 +222,7 @@ footer {
     padding-bottom: 30px;
 }
 footer .footer-logo img {
-    max-height: 39px;
+    max-height: 80px;
 }
 .footer-dark,
 .footer-dark .newsletter-style-02 input,
