@@ -1,0 +1,60 @@
+/* ── Skeleton shimmer ─────────────────────────────────────────────────────── */
+@keyframes skeleton-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #e2e5e7 25%, #eef0f2 50%, #e2e5e7 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.4s ease-in-out infinite;
+    border-radius: 6px;
+    color: transparent !important;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Hide child content while skeleton is active */
+.skeleton * {
+    visibility: hidden !important;
+}
+
+/* Image wrapper — sits over the <img> while it loads */
+.skeleton-img-wrap {
+    position: relative;
+    display: block;
+    background: #e2e5e7;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.skeleton-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.5) 50%, transparent 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-img-wrap img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skeleton-img-wrap.loaded img {
+    opacity: 1;
+}
+
+.skeleton-img-wrap.loaded::after {
+    display: none;
+}
+
+/* Generic skeleton bar — used in accordion + related course placeholders */
+.skel-bar {
+    display: block;
+    background: linear-gradient(90deg, #e2e5e7 25%, #eef0f2 50%, #e2e5e7 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.4s ease-in-out infinite;
+    border-radius: 4px;
+}

@@ -8,10 +8,10 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <meta name="description" content="BNOS Africa Training solutions">
         <!-- favicon icon -->
-        <link rel="shortcut icon" href="images/img5 2-Photoroom.png" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="images/img5 2-Photoroom.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/img5 2-Photoroom.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/img5 2-Photoroom.png">
+        <link rel="shortcut icon" href="images/img5-2-Photoroom.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="images/img5-2-Photoroom.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/img5-2-Photoroom.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/img5-2-Photoroom.png">
         <!-- google fonts preconnect -->
         <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/responsive.css"/>
         <link rel="stylesheet" href="demos/elearning/elearning.css" />
+        <link rel="stylesheet" href="css/skeleton.css">
     </head>
     <body data-mobile-nav-trigger-alignment="right" data-mobile-nav-style="modern" data-mobile-nav-bg-color="#313e3b">
         <!-- start header -->
@@ -30,9 +31,9 @@
                 <div class="container-fluid">
                     <div class="col-auto col-lg-2 me-lg-0 me-auto">
                         <a class="navbar-brand" href="index.html">
-                            <img src="images/img5 2-Photoroom.png" data-at2x="images/demo-elearning-logo-white@2x.png" alt="" class="default-logo">
-                            <img src="images/img5-Photoroom.png" data-at2x="images/demo-elearning-logo-black@2x.png" alt="" class="alt-logo">
-                            <img src="images/img5-Photoroom.png" data-at2x="images/demo-elearning-logo-black@2x.png" alt="" class="mobile-logo"> 
+                            <img src="images/img5-2-Photoroom.png" data-at2x="images/img5-2-Photoroom.png" alt="" class="default-logo">
+                            <img src="images/img5-Photoroom.png" data-at2x="images/img5-Photoroom.png" alt="" class="alt-logo">
+                            <img src="images/img5-Photoroom.png" data-at2x="images/img5-Photoroom.png" alt="" class="mobile-logo">
                         </a>
                     </div>
                     <div class="col-auto menu-order position-static">
@@ -97,8 +98,8 @@
             <div class="container">
                 <div class="row align-items-center extra-small-screen">
                     <div class="col-xl-6 col-lg-7 col-md-8 col-sm-9 position-relative page-title-extra-small" data-anime='{ "el": "childs", "translateY": [-15, 0], "perspective": [1200,1200], "scale": [1.1, 1], "rotateX": [50, 0], "opacity": [0,1], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <h1 class="mb-20px alt-font text-yellow">Our online courses</h1>
-                        <h2 class="fw-500 m-0 ls-minus-2px text-white alt-font">Best eLearning training classes.</h2>
+                        <h1 class="mb-20px alt-font text-yellow">SETA accredited courses</h1>
+                        <h2 class="fw-500 m-0 ls-minus-2px text-white alt-font">Corporate training for SA workplaces.</h2>
                     </div>
                 </div>
             </div>
@@ -112,7 +113,7 @@
             <div class="container">
                 <div class="row align-items-center mb-4">
                     <div class="col-xl-5 lg-mb-30px text-center text-xl-start">
-                        <h2 class="alt-font text-dark-gray fw-600 ls-minus-3px mb-0">Popular courses</h2>
+                        <h2 class="alt-font text-dark-gray fw-600 ls-minus-3px mb-0">Our courses</h2>
                     </div>
                     <div class="col-xl-7 tab-style-04 text-center text-xl-end">
                         <!-- filter navigation -->
@@ -127,7 +128,7 @@
                 </div> 
                 <div class="row" data-anime='{ "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                     <div class="col-12 filter-content p-md-0">
-                        <ul class="portfolio-wrapper grid-loading grid grid-3col xxl-grid-3col xl-grid-3col lg-grid-2col md-grid-2col sm-grid-1col xs-grid-1col gutter-extra-large">
+                        <ul id="moodle-courses-container" class="portfolio-wrapper grid-loading grid grid-3col xxl-grid-3col xl-grid-3col lg-grid-2col md-grid-2col sm-grid-1col xs-grid-1col gutter-extra-large">
                             <li class="grid-sizer"></li>
                             <!-- start portfolio item -->
                             <li class="grid-item design transition-inner-all">
@@ -307,114 +308,225 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row justify-content-center" data-anime='{ "opacity": [0, 1], "translate": [0, 0], "staggervalue": 100, "easing": "easeOutQuad" }'>
-                    <div class="col-12 text-center mt-5"> 
-                        <span class="fs-20 text-dark-gray fw-500 ls-minus-05px">We help you find the perfect tutor. It's completely free. <a href="courses.html" class="fw-600 text-dark-gray">Explore all courses<i class="fa-solid fa-arrow-right ms-5px icon-very-small"></i></a></span>
-                    </div>
-                </div>
             </div>
         </section>
         <!-- end section -->
         <!-- start footer -->
         <footer class="bg-blue position-relative">
-            <div class="position-absolute left-minus-100px top-25px">
-                <img src="images/demo-elearning-bg-05.png" alt="" class="w-80">
+      <div class="position-absolute left-minus-100px top-25px">
+        <img src="images/demo-elearning-bg-05.png" alt="" class="w-80" />
+      </div>
+      <div
+        class="background-position-center-top h-100 w-100 position-absolute left-0px top-0"
+        style="
+          background-image: url(&quot;images/vertical-line-bg-small.svg&quot;);
+        "
+      ></div>
+      <div class="container overlap-section">
+        <div
+          class="row g-0 justify-content-center align-items-center text-center bg-base-color border-radius-6px ps-5 pe-5 pt-3 pb-3 mb-8 sm-p-25px background-position-left-bottom background-no-repeat contain-background position-relative"
+          style="
+            background-image: url(&quot;images/demo-elearning-bg-06.png&quot;);
+          "
+        >
+          <!-- start footer column -->
+          <div class="col-lg-auto lg-mb-20px">
+            <h6
+              class="alt-font fw-600 text-dark-gray m-0 ls-minus-1px d-inline-block me-30px lg-me-0"
+            >
+              Get nearly half your skills levy back, let's claim.
+            </h6>
+          </div>
+          <!-- end footer column -->
+          <!-- start footer column -->
+          <div class="col-auto">
+            <a
+              href="contact.html"
+              class="btn btn-extra-large btn-dark-gray btn-rounded btn-box-shadow btn-switch-text d-inline-block me-20px align-middle xs-m-0"
+            >
+              <span>
+                <span class="btn-double-text" data-text="Get started now"
+                  >Get started now</span
+                >
+                <span><i class="feather icon-feather-thumbs-up"></i></span>
+              </span>
+            </a>
+            <span
+              class="d-block d-sm-inline-block text-dark-gray fs-19 fw-600 left-icon d-inline-block align-middle xs-mt-10px ls-minus-05px"
+              ><a href="tel:+27114567800"
+                ><i class="feather icon-feather-phone-call"></i>011 456 7800</a
+              ></span
+            >
+          </div>
+          <!-- end footer column -->
+        </div>
+      </div>
+      <div
+        class="container footer-dark text-center text-sm-start position-relative"
+      >
+        <div class="row mb-5 sm-mb-7 xs-mb-30px">
+          <!-- start footer column -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 d-flex flex-column last-paragraph-no-margin md-mb-40px xs-mb-30px"
+          >
+            <a href="index.html" class="footer-logo mb-15px d-inline-block">
+              <img
+                src="images/img5-2-Photoroom.png"
+                data-at2x="images/img5-2-Photoroom.png"
+                alt=""
+              />
+            </a>
+            <p class="lh-28">
+              We provide high quality, SETA aligned corporate training for South African businesses.
+            </p>
+            <div class="elements-social social-text-style-01 mt-9 xs-mt-15px">
+              <ul class="small-icon light fw-500">
+                <li>
+                  <a
+                    class="facebook"
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    >Fb.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="instagram"
+                    href="http://www.instagram.com"
+                    target="_blank"
+                    >Ig.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="twitter"
+                    href="http://www.twitter.com"
+                    target="_blank"
+                    >Tw.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="behance"
+                    href="http://www.behance.com/"
+                    target="_blank"
+                    >Be.</a
+                  >
+                </li>
+              </ul>
             </div>
-            <div class="background-position-center-top h-100 w-100 position-absolute left-0px top-0" style="background-image: url('images/vertical-line-bg-small.svg')"></div>
-            <div class="container overlap-section">
-                <div class="row g-0 justify-content-center align-items-center text-center bg-base-color border-radius-6px ps-5 pe-5 pt-3 pb-3 mb-8 sm-p-25px background-position-left-bottom background-no-repeat contain-background position-relative" style="background-image: url('images/demo-elearning-bg-06.png')">
-                    <!-- start footer column -->
-                    <div class="col-lg-auto lg-mb-20px">
-                        <h6 class="alt-font fw-600 text-dark-gray m-0 ls-minus-1px d-inline-block me-30px lg-me-0">Admission is open for the next year batch</h6>
-                    </div>
-                    <!-- end footer column -->
-                    <!-- start footer column -->
-                    <div class="col-auto">
-                        <a href="contact.html" class="btn btn-extra-large btn-dark-gray btn-rounded btn-box-shadow btn-switch-text d-inline-block me-20px align-middle xs-m-0">
-                            <span>
-                                <span class="btn-double-text" data-text="Get started now">Get started now</span>
-                                <span><i class="feather icon-feather-thumbs-up"></i></span>
-                            </span>
-                        </a>
-                        <span class="d-block d-sm-inline-block text-dark-gray fs-19 fw-600 left-icon d-inline-block align-middle xs-mt-10px ls-minus-05px"><a href="tel:0114567800"><i class="feather icon-feather-phone-call"></i>011 456 7800</a></span>
-                    </div>
-                    <!-- end footer column -->
-                </div>
+          </div>
+          <!-- end footer column -->
+          <!-- start footer column -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 ps-4 last-paragraph-no-margin md-mb-40px xs-mb-30px"
+          >
+            <span class="fw-500 fs-18 d-block text-white mb-10px"
+              >Popular courses</span
+            >
+            <ul>
+              <li><a href="courses.html">Financial Management</a></li>
+              <li><a href="courses.html">Leadership Development</a></li>
+              <li><a href="courses.html">Data Analytics for Managers</a></li>
+              <li><a href="courses.html">Project Management (NQF 5)</a></li>
+            </ul>
+          </div>
+          <!-- end footer column -->
+          <!-- start footer column -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 last-paragraph-no-margin xs-mb-30px"
+          >
+            <span class="fw-500 fs-18 d-block text-white mb-10px"
+              >Need help?</span
+            >
+            <span class="lh-26 d-block">Call us for a free skills audit?</span>
+            <span class="text-white d-block mb-10px"
+              ><a href="tel:+27114567800">011 456 7800</a></span
+            >
+            <span class="lh-26 d-block">Need support?</span>
+            <a
+              href="mailto:training@bnosafrica.co.za"
+              class="text-white text-decoration-line-bottom"
+              >training@bnosafrica.co.za</a
+            >
+          </div>
+          <!-- end footer column -->
+          <!-- start footer column -->
+          <div class="col-lg-3 col-md-12 col-sm-6 text-md-center text-lg-start">
+            <span class="fs-18 fw-500 d-block text-white mb-20px"
+              >Subscribe for SETA updates</span
+            >
+            <div
+              class="d-inline-block w-100 newsletter-style-02 position-relative mb-15px"
+            >
+              <form
+                action="email-templates/subscribe-newsletter.php"
+                method="post"
+                class="position-relative w-100"
+              >
+                <input
+                  class="input-small bg-dark-gray border-color-transparent-white-light w-100 form-control required"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email..."
+                />
+                <input type="hidden" name="redirect" value="" />
+                <button
+                  type="submit"
+                  aria-label="submit"
+                  class="btn pe-20px text-white fs-13 fw-500 lg-ps-15px lg-pe-15px submit"
+                >
+                  Submit <i class="feather icon-feather-arrow-right submit"></i>
+                </button>
+                <div
+                  class="form-results border-radius-4px pt-5px pb-5px ps-15px pe-15px fs-14 lh-22 mt-10px w-100 text-center position-absolute d-none"
+                ></div>
+              </form>
             </div>
-            <div class="container footer-dark text-center text-sm-start position-relative"> 
-                <div class="row mb-5 sm-mb-7 xs-mb-30px">
-                    <!-- start footer column -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 d-flex flex-column last-paragraph-no-margin md-mb-40px xs-mb-30px">
-                        <a href="index.html" class="footer-logo mb-15px d-inline-block">
-                            <img src="images/img5 2-Photoroom.png" data-at2x="images/demo-elearning-footer-logo@2x.png" alt="">
-                        </a>
-                        <p class="lh-28">We are providing high-quality courses for about ten years.</p>
-                        <div class="elements-social social-text-style-01 mt-9 xs-mt-15px">
-                            <ul class="small-icon light fw-500">
-                                <li><a class="facebook" href="https://www.facebook.com/" target="_blank">Fb.</a></li>
-                                <li><a class="instagram" href="http://www.instagram.com" target="_blank">Ig.</a></li> 
-                                <li><a class="twitter" href="http://www.twitter.com" target="_blank">Tw.</a></li> 
-                                <li><a class="behance" href="http://www.behance.com/" target="_blank">Be.</a></li> 
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- end footer column -->  
-                    <!-- start footer column -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 ps-4 last-paragraph-no-margin md-mb-40px xs-mb-30px"> 
-                        <span class="fw-500 fs-18 d-block text-white mb-10px">Popular courses</span>
-                        <ul>
-                            <li><a href="courses.html">Business finance</a></li>
-                            <li><a href="courses.html">Advanced design</a></li>
-                            <li><a href="courses.html">Web development</a></li>
-                            <li><a href="courses.html">Data visualization</a></li>
-                        </ul> 
-                    </div>
-                    <!-- end footer column -->
-                    <!-- start footer column -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 last-paragraph-no-margin xs-mb-30px"> 
-                        <span class="fw-500 fs-18 d-block text-white mb-10px">Need help?</span>
-                        <span class="lh-26 d-block">Call us directly?</span>
-                        <span class="text-white d-block mb-10px"><a href="tel:0114567800">011 456 7800</a></span>
-                        <span class="lh-26 d-block">Need support?</span>
-                        <a href="mailto:bnos@gmail.com" class="text-white text-decoration-line-bottom">bnos@gmail.com</a>
-                    </div>
-                    <!-- end footer column -->
-                    <!-- start footer column -->
-                    <div class="col-lg-3 col-md-12 col-sm-6 text-md-center text-lg-start">
-                        <span class="fs-18 fw-500 d-block text-white mb-20px">Subscribe our newsletter</span> 
-                        <div class="d-inline-block w-100 newsletter-style-02 position-relative mb-15px">
-                            <form action="email-templates/subscribe-newsletter.php" method="post" class="position-relative w-100">
-                                <input class="input-small bg-dark-gray border-color-transparent-white-light w-100 form-control required" type="email" name="email" placeholder="Enter your email...">
-                                <input type="hidden" name="redirect" value="">
-                                <button type="submit" aria-label="submit" class="btn pe-20px text-white fs-13 fw-500 lg-ps-15px lg-pe-15px submit">Submit <i class="feather icon-feather-arrow-right submit"></i></button>
-                                <div class="form-results border-radius-4px pt-5px pb-5px ps-15px pe-15px fs-14 lh-22 mt-10px w-100 text-center position-absolute d-none"></div>
-                            </form>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-sm-start justify-content-lg-start fs-14">
-                            <div class="d-inline-block"><i class="line-icon-Handshake me-10px align-middle icon-very-medium"></i>Protecting your privacy</div> 
-                        </div>
-                    </div>
-                    <!-- end footer column -->
-                </div> 
-                <div class="row align-items-center footer-bottom border-top border-color-transparent-white-light pt-30px g-0">
-                    <!-- start footer menu -->
-                    <div class="col-xl-7 ps-0 text-center text-xl-start lg-mb-10px"> 
-                        <ul class="footer-navbar fs-16 lh-normal"> 
-                            <li class="nav-item active"><a href="index.html" class="nav-link ps-0">Home</a></li>
-                            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                            <li class="nav-item"><a href="courses.html" class="nav-link">Courses</a></li>
-                            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        </ul>
-                    </div> 
-                    <!-- end footer menu -->
-                    <!-- start copyright -->
-                    <div class="col-xl-5 last-paragraph-no-margin text-center text-xl-end">
-                        <p class="fs-16">&copy; BNOS Africa Training Solutions.</p>
-                    </div>
-                    <!-- start copyright -->
-                </div>
-            </div> 
-        </footer>
+            <div
+              class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-sm-start justify-content-lg-start fs-14"
+            >
+              <div class="d-inline-block">
+                <i
+                  class="line-icon-Handshake me-10px align-middle icon-very-medium"
+                ></i
+                >Level 1 B-BBEE contributor
+              </div>
+            </div>
+          </div>
+          <!-- end footer column -->
+        </div>
+        <div
+          class="row align-items-center footer-bottom border-top border-color-transparent-white-light pt-30px g-0"
+        >
+          <!-- start footer menu -->
+          <div class="col-xl-7 ps-0 text-center text-xl-start lg-mb-10px">
+            <ul class="footer-navbar fs-16 lh-normal">
+              <li class="nav-item active">
+                <a href="index.html" class="nav-link ps-0">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="courses.html" class="nav-link">Courses</a>
+              </li>
+              <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <!-- end footer menu -->
+          <!-- start copyright -->
+          <div
+            class="col-xl-5 last-paragraph-no-margin text-center text-xl-end"
+          >
+            <p class="fs-16">&copy; BNOS Africa Training Solutions (Pty) Ltd.</p>
+          </div>
+          <!-- start copyright -->
+        </div>
+      </div>
+    </footer>
         <!-- end footer -->
         <!-- start scroll progress -->
         <div class="scroll-progress d-none d-xxl-block">
@@ -427,5 +539,166 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/vendors.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const $courseContainer  = $('#moodle-courses-container');
+    const $filterContainer  = $('.portfolio-filter');
+
+    // ─── 1. Show skeletons immediately ───────────────────────────────────────
+    applySkeletons();
+
+    // ─── 2. Fetch and render real courses ────────────────────────────────────
+    async function loadMoodleCourses() {
+        try {
+            const response = await fetch("get-course.php").then(r => r.json());
+
+            if (response.status === "error") {
+                console.error("Backend Error:", response.message);
+                clearSkeletons();
+                return;
+            }
+
+            const courses = response.courses || [];
+
+            // ── Filter tabs ───────────────────────────────────────────────────
+            const uniqueCategories = [...new Set(courses.map(c => c.categoryname))];
+            let filterTabsHTML = '<li class="nav active"><a data-filter="*" href="#">All</a></li>';
+
+            uniqueCategories.forEach(catName => {
+                if (!catName || catName === "System" || catName === "Category 1") return;
+                const filterClass = catName.toLowerCase().replace(/\s+/g, "-");
+                filterTabsHTML += `<li class="nav"><a data-filter=".${filterClass}" href="#">${catName}</a></li>`;
+            });
+            $filterContainer.html(filterTabsHTML);
+
+            // ── Course cards ──────────────────────────────────────────────────
+            $courseContainer.html('<li class="grid-sizer"></li>');
+
+            let courseHTMLString = "";
+            courses.forEach(course => {
+                const categoryName = course.categoryname || "Uncategorized";
+                const filterClass  = categoryName.toLowerCase().replace(/\s+/g, "-");
+                const defaultImage = "images/demo-elearning-courses-01.jpg";
+                const courseImage  = course.courseimage ? course.courseimage : defaultImage;
+                const lessonCount  = course.lessonCount  || 0;
+                const studentCount = course.studentCount || 0;
+                const reviewsCount = Math.floor(Math.random() * 50) + 10;
+
+                courseHTMLString += `
+                <li class="grid-item ${filterClass} transition-inner-all">
+                    <div class="services-box-style-06 border-radius-6px hover-box overflow-hidden box-shadow-large">
+                        <div class="image">
+                            <a href="courses-details.html?id=${course.id}">
+                                <img src="${courseImage}" alt="${course.fullname}">
+                            </a>
+                        </div>
+                        <div class="bg-white position-relative">
+                            <div class="ps-35px pe-35px pt-30px pb-30px xl-ps-25px xl-pe-25px border-bottom border-color-transparent-dark-very-light">
+                                <span class="d-block mb-10px">
+                                    <a href="courses.html" class="text-dark-gray text-uppercase fs-15 fw-600 services-text">${categoryName}</a>
+                                    <span class="fs-16">Instructor</span>
+                                </span>
+                                <div class="d-flex align-items-center mb-5px">
+                                    <a href="courses-details.html?id=${course.id}" class="text-dark-gray fw-600 fs-19 md-fs-18 lh-28 w-90">${course.fullname}</a>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="d-inline-block me-auto">
+                                        <div class="review-star-icon float-start">
+                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        </div>
+                                        <div class="fs-15 float-start ms-5px position-relative top-2px">(${reviewsCount} Reviews)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center ps-35px pe-35px xl-ps-25px xl-pe-25px pt-15px pb-20px">
+                                <div class="me-auto">
+                                    <i class="feather icon-feather-clipboard text-dark-gray d-inline-block me-5px"></i>
+                                    <span class="fs-16 text-dark-gray fw-500">${lessonCount} Lessons</span>
+                                </div>
+                                <div>
+                                    <i class="feather icon-feather-users text-dark-gray d-inline-block me-5px"></i>
+                                    <span class="fs-16 text-dark-gray fw-500">${studentCount} Students</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>`;
+            });
+
+            $courseContainer.append(courseHTMLString);
+
+            // ── Re-init Isotope — clear min-height set during skeleton phase ──
+            $courseContainer.imagesLoaded(function () {
+                if ($courseContainer.data('isotope')) $courseContainer.isotope('destroy');
+                $courseContainer.css('min-height', ''); // remove skeleton prop
+                $courseContainer.removeClass('grid-loading');
+                $courseContainer.isotope({
+                    layoutMode:      'masonry',
+                    itemSelector:    '.grid-item',
+                    percentPosition: true,
+                    stagger:         0,
+                    masonry:         { columnWidth: '.grid-sizer' },
+                });
+            });
+
+        } catch (error) {
+            console.error("Failed to load courses:", error);
+            clearSkeletons();
+        }
+    }
+
+    // ─── Skeleton helpers ─────────────────────────────────────────────────────
+    function applySkeletons() {
+
+        // Filter tabs — 4 skeleton pills
+        let skeletonTabs = '';
+        [90, 60, 75, 65].forEach(w => {
+            skeletonTabs += `<li class="nav"><a href="#" style="pointer-events:none;"><span class="skel-bar d-inline-block" style="height:16px;width:${w}px;vertical-align:middle;"></span></a></li>`;
+        });
+        $filterContainer.html(skeletonTabs);
+
+        // Course cards — 6 skeleton cards matching real card structure
+        const skeletonCard = `
+        <li class="grid-item">
+            <div class="services-box-style-06 border-radius-6px overflow-hidden box-shadow-large">
+                <div class="skel-bar" style="height:220px; border-radius:0;"></div>
+                <div class="bg-white ps-35px pe-35px pt-30px pb-25px">
+                    <span class="skel-bar d-block mb-12px" style="height:13px; width:38%;"></span>
+                    <span class="skel-bar d-block mb-8px"  style="height:20px; width:90%;"></span>
+                    <span class="skel-bar d-block mb-20px" style="height:20px; width:65%;"></span>
+                    <span class="skel-bar d-block mb-0"    style="height:13px; width:50%;"></span>
+                </div>
+                <div class="bg-white ps-35px pe-35px pb-20px d-flex justify-content-between" style="border-top: 1px solid #f0f0f0; padding-top:15px;">
+                    <span class="skel-bar" style="height:14px; width:30%;"></span>
+                    <span class="skel-bar" style="height:14px; width:30%;"></span>
+                </div>
+            </div>
+        </li>`;
+
+        $courseContainer.html(
+            '<li class="grid-sizer"></li>' +
+            skeletonCard.repeat(6)
+        );
+
+        // Skip Isotope entirely for skeletons — it absolutely positions items
+        // and derives container height from measured item heights, so it always
+        // returns 0 before real images exist. Instead just remove grid-loading
+        // and hold the container open with min-height. Isotope runs properly
+        // once real cards + images arrive in loadMoodleCourses().
+        $courseContainer.removeClass('grid-loading');
+        $courseContainer.css('min-height', '800px');
+    }
+
+    // Fallback: restore filter tabs + clear cards on error
+    function clearSkeletons() {
+        $filterContainer.html('<li class="nav active"><a data-filter="*" href="#">All</a></li>');
+        $courseContainer.css('min-height', '');
+        $courseContainer.html('<li class="grid-sizer"></li>');
+    }
+
+    loadMoodleCourses();
+});
+</script>
     </body>
 </html>
