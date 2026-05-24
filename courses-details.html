@@ -239,12 +239,7 @@
                 alt=""
                 class="w-100 border-radius-6px mb-7"
               />
-              <p id="course-description">
-                Lorem ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
+
               <div class="col-12 p-0 tab-style-04 mt-45px">
                 <ul
                   class="nav nav-tabs justify-content-center fw-500 fs-18 ls-minus-05px mb-50px sm-mb-30px lh-70 sm-lh-40 text-center"
@@ -286,7 +281,7 @@
                             class="fs-18 text-dark-gray fw-600 ls-minus-05px d-inline-block mb-10px"
                             >What you'll learn from this course</span
                           >
-                          <ul class="p-0 m-0 list-style-02 text-dark-gray">
+                          <ul id="course-outcomes" class="p-0 m-0 list-style-02 text-dark-gray">
                             <li class="pb-5px d-flex">
                               <i
                                 class="feather icon-feather-arrow-right-circle fs-20 me-10px"
@@ -326,7 +321,7 @@
                           class="fs-18 text-dark-gray fw-600 ls-minus-05px d-inline-block mb-5px"
                           >Certification</span
                         >
-                        <p>
+                        <p id="course-certification">
                           Lorem ipsum is simply dummy text of the printing and
                           typesetting industry. Lorem ipsum has been the
                           industry's standard dummy text ever since the 1500s,
@@ -1206,8 +1201,7 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/vendors.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script>
-document.addEventListener("DOMContentLoaded", async () => {
+    <script>document.addEventListener("DOMContentLoaded", async () => {
 
     // ─── 1. Read course ID from URL ───────────────────────────────────────────
     const urlParams = new URLSearchParams(window.location.search);
@@ -1243,31 +1237,86 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const enrolledEl = document.getElementById('course-enrolled');
         enrolledEl.classList.remove('skeleton');
-        enrolledEl.innerHTML = `<span class="fw-600 text-dark-gray">Enrolled:</span> ${course.studentCount} students`;
+        enrolledEl.innerHTML = `<span class="fw-600 text-dark-gray">Enrolled:</span> ${course.studentCount} ${course.studentCount > 1 ? 'Students' : 'Student'}`;
 
         // ── Hero image ────────────────────────────────────────────────────────
         revealImage('course-image', course.courseimage);
         revealImage('video-image',  course.courseimage);
 
-        // ── Short description (above tabs) ────────────────────────────────────
-        const shortDesc = document.getElementById('course-description');
-        if (shortDesc) {
-            shortDesc.classList.remove('skeleton');
-            shortDesc.innerHTML = course.summary || '<em>No description available.</em>';
-        }
+        // ── Overview tab: split summary into description / outcomes / certification ──
+        const parser    = new DOMParser();
+        const summaryDoc = parser.parseFromString(course.summary || '', 'text/html');
+        const nodes     = Array.from(summaryDoc.body.childNodes);
 
-        // ── Overview tab description ───────────────────────────────────────────
+        let descHtml = '', outcomesHtml = '', certHtml = '';
+        let mode = 'desc';
+
+        nodes.forEach(node => {
+            const tag  = node.nodeName.toLowerCase();
+            const text = node.textContent.trim();
+
+            if (tag === 'p' && /^outcomes?$/i.test(text)) {
+                mode = 'outcomes';
+                return;
+            }
+
+            if (tag === 'p' && /^certification/i.test(text)) {
+                mode = 'cert';
+                // Strip the "Certification" label and leading <br> nodes, keep remaining text
+                const clone = node.cloneNode(true);
+                clone.childNodes.forEach(child => {
+                    if (child.nodeType === Node.TEXT_NODE && /^certification\s*/i.test(child.textContent.trim())) {
+                        child.textContent = child.textContent.replace(/^certification\s*/i, '');
+                    }
+                });
+                while (clone.firstChild && clone.firstChild.nodeName === 'BR') {
+                    clone.removeChild(clone.firstChild);
+                }
+                certHtml += clone.innerHTML.replace(/^(<br\s*\/?>)+/i, '').trim();
+                return;
+            }
+
+            if (mode === 'desc')                          descHtml    += node.outerHTML || '';
+            if (mode === 'outcomes' && tag === 'ul')      outcomesHtml = node.innerHTML;
+            if (mode === 'cert')                          certHtml    += node.outerHTML || '';
+        });
+
+        // ── Populate description ──────────────────────────────────────────────
         const overviewDesc = document.getElementById('overview-description');
         if (overviewDesc) {
             overviewDesc.classList.remove('skeleton');
-            overviewDesc.innerHTML = course.summary || '<em>No description available.</em>';
+            overviewDesc.innerHTML = descHtml || '<em>No description available.</em>';
+        }
+
+        // ── Populate outcomes ─────────────────────────────────────────────────
+        const outcomesEl = document.getElementById('course-outcomes');
+        if (outcomesEl) {
+            outcomesEl.classList.remove('skeleton');
+            if (outcomesHtml) {
+                const tempUl = parser.parseFromString(`<ul>${outcomesHtml}</ul>`, 'text/html');
+                const items  = Array.from(tempUl.querySelectorAll('li'));
+                outcomesEl.innerHTML = items.map(li => `
+                    <li class="pb-5px d-flex">
+                        <i class="feather icon-feather-arrow-right-circle fs-20 me-10px"></i>
+                        ${li.innerHTML}
+                    </li>`).join('');
+            } else {
+                outcomesEl.innerHTML = '<li class="pb-5px"><em>No outcomes listed yet.</em></li>';
+            }
+        }
+
+        // ── Populate certification ────────────────────────────────────────────
+        const certEl = document.getElementById('course-certification');
+        if (certEl) {
+            certEl.classList.remove('skeleton');
+            certEl.innerHTML = certHtml || '<em>No certification information available.</em>';
         }
 
         // ── Sidebar stats ─────────────────────────────────────────────────────
         const sidebarEnrolled = document.getElementById('sidebar-enrolled');
         if (sidebarEnrolled) {
             sidebarEnrolled.classList.remove('skeleton');
-            sidebarEnrolled.textContent = `${course.studentCount} students`;
+            sidebarEnrolled.textContent = `${course.studentCount} ${course.studentCount > 1 ? 'Students' : 'Student'}`;
         }
 
         const sidebarLessons = document.getElementById('sidebar-lessons');
@@ -1292,20 +1341,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ─── Apply skeletons to all dynamic elements up front ────────────────────
     function applySkeletons() {
 
-        // Text/inline elements — add skeleton class directly
         const textIds = [
             'course-title',
             'course-category',
             'course-enrolled',
-            'course-description',
             'overview-description',
+            'course-outcomes',
+            'course-certification',
             'sidebar-enrolled',
             'sidebar-lessons',
         ];
         textIds.forEach(id => {
             const el = document.getElementById(id);
             if (!el) return;
-            // Give skeleton bars a visible minimum size
             el.classList.add('skeleton');
             el.style.minHeight = '1.2em';
             el.style.display   = 'block';
@@ -1348,20 +1396,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // ─── Reveal an image: remove skeleton wrapper, fade image in ─────────────
     function revealImage(id, src) {
-    const img = document.getElementById(id);
-    if (!img) return;
+        const img = document.getElementById(id);
+        if (!img) return;
 
-    const wrapper = img.parentElement;
+        const wrapper = img.parentElement;
 
-    if (src) img.src = src;
+        if (src) img.src = src;
 
-    const reveal = () => {
-        wrapper.classList.remove('skeleton-img-wrap');
-    };
+        const reveal = () => {
+            wrapper.classList.remove('skeleton-img-wrap');
+        };
 
-    img.onload = reveal;
-    if (img.complete) reveal();
-}
+        img.onload = reveal;
+        if (img.complete) reveal();
+    }
 
 
     // ─── Strip all skeleton classes (error fallback) ──────────────────────────
@@ -1373,7 +1421,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
         document.querySelectorAll('.skeleton-img-wrap').forEach(el => {
             el.classList.remove('skeleton-img-wrap');
-            // el.classList.add('loaded');
         });
     }
 
@@ -1383,7 +1430,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         const accordionEl = document.getElementById('accordion-style-04');
         if (!accordionEl) return;
 
-        // No sections — clear skeleton and show a message
         if (!sections || sections.length === 0) {
             accordionEl.innerHTML = '<p class="text-dark-gray fs-16 pt-15px">Course content not yet available.</p>';
             return;
@@ -1396,23 +1442,25 @@ document.addEventListener("DOMContentLoaded", async () => {
             const isFirst    = sectionIndex === 0;
 
             const moduleRows = section.modules.map((mod, modIndex) => {
-                const isLast  = modIndex === section.modules.length - 1;
-                const border  = !isLast ? 'border-bottom border-color-extra-medium-gray' : '';
-                const topPad  = modIndex === 0 ? '' : 'pt-15px';
-                const botPad  = !isLast ? 'pb-15px' : '';
-                const link    = mod.url
-                    ? `<a href="${mod.url}" target="_blank" class="ms-auto text-dark-gray"><i class="fa-solid fa-circle-play fs-18"></i></a>`
-                    : '';
+                const isLast = modIndex === section.modules.length - 1;
+
+                const classes = [
+                    !isLast      ? 'border-bottom border-color-extra-medium-gray' : '',
+                    modIndex > 0 ? 'pt-15px' : '',
+                    !isLast      ? 'pb-15px'  : '',
+                ].filter(Boolean).join(' ');
+
+                const icon = `<span class="ms-auto text-dark-gray"><i class="fa-solid fa-circle-play fs-18"></i></span>`;
 
                 return `
-                <li class="${border} ${topPad} ${botPad}">
+                <li${classes ? ` class="${classes}"` : ''}>
                     <span>${escapeHtml(mod.name)}</span>
-                    ${link}
+                    ${icon}
                 </li>`;
             }).join('');
 
             accordionEl.insertAdjacentHTML('beforeend', `
-            <div class="accordion-item ${isFirst ? 'active-accordion' : ''}">
+            <div class="accordion-item${isFirst ? ' active-accordion' : ''}">
                 <div class="accordion-header border-bottom border-color-extra-medium-gray mb-0">
                     <a href="" data-bs-toggle="collapse" data-bs-target="#${collapseId}"
                        aria-expanded="${isFirst}" data-bs-parent="#accordion-style-04">
@@ -1422,13 +1470,33 @@ document.addEventListener("DOMContentLoaded", async () => {
                         </div>
                     </a>
                 </div>
-                <div id="${collapseId}" class="accordion-collapse collapse ${isFirst ? 'show' : ''}" data-bs-parent="#accordion-style-04">
+                <div id="${collapseId}" class="accordion-collapse collapse${isFirst ? ' show' : ''}" data-bs-parent="#accordion-style-04">
                     <div class="accordion-body bg-white last-paragraph-no-margin">
                         <ul class="p-0 m-0 list-style-02">${moduleRows}</ul>
                     </div>
                 </div>
             </div>`);
         });
+
+        document.querySelectorAll('#accordion-style-04 .accordion-collapse').forEach(collapseEl => {
+            collapseEl.addEventListener('show.bs.collapse', () => {
+                const item = collapseEl.closest('.accordion-item');
+                item.classList.add('active-accordion');
+                item.querySelector('.accordion-title i').classList.replace('fa-angle-right', 'fa-angle-down');
+            });
+
+            collapseEl.addEventListener('hide.bs.collapse', () => {
+                const item = collapseEl.closest('.accordion-item');
+                item.classList.remove('active-accordion');
+                item.querySelector('.accordion-title i').classList.replace('fa-angle-down', 'fa-angle-right');
+            });
+        });
+
+        // ── Force the first item open via Bootstrap's API ─────────────────────
+        const firstCollapse = document.querySelector('#accordion-dyn-0');
+        if (firstCollapse) {
+            bootstrap.Collapse.getOrCreateInstance(firstCollapse, { toggle: false }).show();
+        }
     }
 
 
@@ -1454,7 +1522,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
 
-            // Replace skeleton cards with real content
             $wrapper.html('<li class="grid-sizer"></li>');
 
             let html = '';
@@ -1494,7 +1561,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 </div>
                                 <div>
                                     <i class="feather icon-feather-users text-dark-gray d-inline-block me-5px"></i>
-                                    <span class="fs-16 text-dark-gray fw-500">${course.studentCount} Students</span>
+                                    <span class="fs-16 text-dark-gray fw-500">${course.studentCount} ${course.studentCount > 1 ? 'Students' : 'Student'}</span>
                                 </div>
                             </div>
                         </div>
