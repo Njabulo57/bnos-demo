@@ -12,9 +12,7 @@ $url = $_GET['url'];
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-// This header bypasses the Ngrok warning screen!
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['ngrok-skip-browser-warning: true']); 
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 
 $imageBytes = curl_exec($ch);
 $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);

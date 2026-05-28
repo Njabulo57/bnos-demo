@@ -17,8 +17,7 @@ function callMoodleWS($moodle_url, $token, $wsfunction, $extraParams = []) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $moodle_url . '?' . http_build_query($params));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, ['ngrok-skip-browser-warning: true']);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     $response = curl_exec($ch);
     curl_close($ch);
 
