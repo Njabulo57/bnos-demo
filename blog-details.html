@@ -31,6 +31,20 @@
       }
     }
 
+    @media (max-width: 470px){
+      .logo-image{
+        max-width: 100px !important;
+      }
+
+      .logo-container{
+        margin-right: 0px !important;
+      }
+
+      .cta-container{
+        padding-left: 0px !important;
+      }
+    }
+
     @media (min-width: 560px) {
       .display-class {
         display: none;
@@ -45,16 +59,16 @@
     <!-- start navigation -->
     <nav class="navbar navbar-expand-lg header-transparent bg-transparent header-reverse" data-header-hover="light">
       <div class="container-fluid">
-        <div class="col-auto col-lg-2 me-lg-0 me-auto">
+        <div class="col-auto col-lg-2 me-lg-0 logo-container me-auto">
           <a class="navbar-brand" href="index.html">
             <img src="images/img5-2-Photoroom.png" data-at2x="images/img5-2-Photoroom.png" alt=""
               class="default-logo" />
             <img src="images/img5-Photoroom.png" data-at2x="images/img5-Photoroom.png" alt="" class="alt-logo" />
-            <img src="images/img5-Photoroom.png" data-at2x="images/img5-Photoroom.png" alt="" class="mobile-logo" />
+            <img src="images/img5-Photoroom.png" data-at2x="images/img5-Photoroom.png" alt="" class="mobile-logo logo-image" />
           </a>
         </div>
-        <div class="col-auto menu-order position-static flex-mobile-cta">
-          <div class="alt-font fw-500 lg-fs-15 xs-fs-13 overflow-hidden display-class" style="margin-inline: 20px;">
+        <div class="col-auto menu-order position-static flex-mobile-cta cta-container">
+          <div class="alt-font fw-500 lg-fs-15 xs-fs-13 overflow-hidden display-class" style="margin-right: 20px;">
             <a href="contact.html#contactForm"
               class="btn btn-base-color btn-rounded btn-switch-text fw-600 d-inline-block sm-btn-medium xs-btn-small align-middle left-icon"
               style="padding: 10px;">

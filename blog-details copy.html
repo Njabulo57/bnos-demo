@@ -34,19 +34,33 @@
         <link rel="stylesheet" href="css/responsive.css"/>
         <link rel="stylesheet" href="demos/elearning/elearning.css" />
         <style>
-      @media (max-width: 767px) {
-      .flex-mobile-cta{
+    @media (max-width: 767px) {
+      .flex-mobile-cta {
         display: flex;
         align-items: center;
       }
     }
 
-    @media (min-width: 560px){
-            .display-class {
-  display: none;
-}
+    @media (max-width: 470px){
+      .logo-image{
+        max-width: 100px !important;
+      }
+
+      .logo-container{
+        margin-right: 0px !important;
+      }
+
+      .cta-container{
+        padding-left: 0px !important;
+      }
     }
-    </style>
+
+    @media (min-width: 560px) {
+      .display-class {
+        display: none;
+      }
+    }
+  </style>
     </head>
     <body data-mobile-nav-trigger-alignment="right" data-mobile-nav-style="modern" data-mobile-nav-bg-color="#313e3b">  
         <!-- start header -->
