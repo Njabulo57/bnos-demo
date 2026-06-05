@@ -37,6 +37,27 @@ function callMoodleWS($moodle_url, $token, $wsfunction, $extraParams = []) {
     return $decoded;
 }
 
+// Add this helper somewhere above the try block
+function formatCourseDuration($startdate, $enddate): ?string {
+    if (!isset($startdate, $enddate) || $enddate <= 0 || $enddate <= $startdate) {
+        return null;
+    }
+
+    $days = (int)(($enddate - $startdate) / 86400);
+
+    if ($days >= 30) {
+        $months = round($days / 30.44); // avg days per month
+        return $months . ' ' . ($months === 1 ? 'month' : 'months');
+    }
+
+    if ($days >= 7) {
+        $weeks = round($days / 7);
+        return $weeks . ' ' . ($weeks === 1 ? 'week' : 'weeks');
+    }
+
+    return $days . ' ' . ($days === 1 ? 'day' : 'days');
+}
+
 try {
     $courseId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
     if (!$courseId) throw new Exception('No course ID provided.');
@@ -72,11 +93,16 @@ try {
     // The timeline endpoint doesn't return summary/description, so we fetch it
     // separately. If this fails we just use an empty summary — non-fatal.
     $summary = '';
+    $startDate = null;
+    $endDate = null;
+    
     $supplementResponse = callMoodleWS($moodle_url, $token, 'core_course_get_courses', [
         'options[ids][0]' => $courseId,
     ]);
     if (!isset($supplementResponse['exception']) && !empty($supplementResponse[0])) {
         $summary = $supplementResponse[0]['summary'] ?? '';
+        $startDate = $supplementResponse[0]['startdate'] ?? null;
+        $endDate = $supplementResponse[0]['enddate'] ?? null;
     }
 
     // ── 3. Student count ────────────────────────────────────────────────────
@@ -148,6 +174,7 @@ try {
             'studentCount' => $studentCount,
             'lessonCount'  => $lessonCount,
             'sections'     => $sections,
+            'duration'     => formatCourseDuration($startDate, $endDate),
         ],
     ]);
 

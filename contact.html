@@ -21,74 +21,118 @@
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/responsive.css"/>
         <link rel="stylesheet" href="demos/elearning/elearning.css" />
+        <style>
+      @media (max-width: 767px) {
+      .flex-mobile-cta{
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 560px){
+            .display-class {
+  display: none;
+}
+    }
+    </style>
     </head>
     <body data-mobile-nav-trigger-alignment="right" data-mobile-nav-style="modern" data-mobile-nav-bg-color="#313e3b">  
         <!-- start header -->
-        <header> 
-            <!-- start navigation -->
-            <nav class="navbar navbar-expand-lg header-transparent bg-transparent header-reverse" data-header-hover="light">
-                <div class="container-fluid">
-                    <div class="col-auto col-lg-2 me-lg-0 me-auto">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="images/img5-2-Photoroom.png" data-at2x="images/img5-2-Photoroom.png" alt="" class="default-logo">
-                            <img src="images/img5-Photoroom.png" data-at2x="images/img5-Photoroom.png" alt="" class="alt-logo">
-                            <img src="images/img5-Photoroom.png" data-at2x="images/img5-Photoroom.png" alt="" class="mobile-logo">
-                        </a>
-                    </div>
-                    <div class="col-auto menu-order position-static">
-                        <button class="navbar-toggler float-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-line"></span>
-                            <span class="navbar-toggler-line"></span>
-                            <span class="navbar-toggler-line"></span>
-                            <span class="navbar-toggler-line"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav"> 
-                            <ul class="navbar-nav alt-font"> 
-                                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                                <li class="nav-item dropdown dropdown-with-icon">
-                                    <a href="courses.html" class="nav-link">Courses</a>
-                                    <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li>
-                                            <a href="courses-details.html"><i class="bi bi-laptop"></i>
-                                                <div class="submenu-icon-content">
-                                                    <span>Finance</span>
-                                                    <p>Develop professional finance skills</p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="courses-details.html"><i class="bi bi-briefcase"></i>
-                                                <div class="submenu-icon-content">
-                                                    <span>Business</span>
-                                                    <p>Advance your business</p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="courses-details.html"><i class="bi bi-megaphone"></i>
-                                                <div class="submenu-icon-content">
-                                                    <span>Marketing</span>
-                                                    <p>New age marketing skills</p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-auto col-lg-2 text-end d-none d-sm-flex">
-                        <div class="header-icon">
-                            <div><div class="alt-font fw-500 lg-fs-15"><a href="tel:0114567800" class="widget-text text-white-hover"><i class="feather icon-feather-phone-call me-10px lg-me-5px"></i>011 456 7800</a></div></div>
-                        </div>  
-                    </div>
-                </div>
-            </nav>
-            <!-- end navigation -->
-        </header>
+        <header>
+    <!-- start navigation -->
+    <nav class="navbar navbar-expand-lg header-transparent bg-transparent header-reverse" data-header-hover="light">
+      <div class="container-fluid">
+        <div class="col-auto col-lg-2 me-lg-0 me-auto">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/img5-2-Photoroom.png" data-at2x="images/img5-2-Photoroom.png" alt=""
+              class="default-logo" />
+            <img src="images/img5-Photoroom.png" data-at2x="images/img5-Photoroom.png" alt="" class="alt-logo" />
+            <img src="images/img5-Photoroom.png" data-at2x="images/img5-Photoroom.png" alt="" class="mobile-logo" />
+          </a>
+        </div>
+        <div class="col-auto menu-order position-static flex-mobile-cta">
+          <div class="alt-font fw-500 lg-fs-15 xs-fs-13 overflow-hidden display-class" style="margin-inline: 20px;">
+            <a href="contact.html#contactForm"
+              class="btn btn-base-color btn-rounded btn-switch-text fw-600 d-inline-block sm-btn-medium xs-btn-small align-middle left-icon"
+              style="padding: 10px;">
+              <span>
+                <span class="btn-double-text ls-minus-05px" data-text="Speak to Our Team">Speak to Our Team</span>
+              </span>
+            </a>
+          </div>
+          <button class="navbar-toggler float-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-label="Toggle navigation">
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav alt-font">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+              </li>
+              <li class="nav-item dropdown dropdown-with-icon">
+                <a href="courses.html" class="nav-link">Courses</a>
+                <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li>
+                    <a href="courses-details.html"><i class="bi bi-laptop"></i>
+                      <div class="submenu-icon-content">
+                        <span>Finance</span>
+                        <p>Develop professional finance skills</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="courses-details.html"><i class="bi bi-briefcase"></i>
+                      <div class="submenu-icon-content">
+                        <span>Business</span>
+                        <p>Advance your business</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="courses-details.html"><i class="bi bi-megaphone"></i>
+                      <div class="submenu-icon-content">
+                        <span>Marketing</span>
+                        <p>New age marketing skills</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+              <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-auto col-lg-3 text-end d-none d-sm-flex">
+          <div class="header-icon">
+            <div>
+              <div class="alt-font fw-500 lg-fs-15 overflow-hidden w-100">
+                <a href="contact.html#contactForm"
+                  class="w-100 btn btn-extra-large btn-base-color btn-rounded btn-switch-text fw-600 d-inline-block sm-me-10px align-middle">
+                  <span>
+                    <span class="btn-double-text ls-minus-05px" data-text="Train Your Workforce">Speak to Our
+                      Team</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- end navigation -->
+  </header>
         <!-- end header --> 
         <!-- start page title -->
         <section class="ipad-top-space-margin bg-dark-gray cover-background page-title-big-typography">
@@ -140,7 +184,7 @@
                 </div>
             </div>
         </div>
-        <div class="position-absolute bottom-130px z-index-minus-1 w-100 left-0px d-none d-lg-block">
+        <div id="contactForm" class="position-absolute bottom-130px z-index-minus-1 w-100 left-0px d-none d-lg-block">
             <div class="row position-relative mt-50px">
                 <div class="col-12">
                     <!-- start marquees -->
@@ -153,7 +197,7 @@
 </section>
 <!-- end page title -->
 <!-- start section -->
-<section class="overflow-hidden position-relative overlap-height pt-0">
+<section  class="overflow-hidden position-relative overlap-height pt-0">
     <div class="container overlap-gap-section" > 
         <div class="row justify-content-center mb-3">
             <div class="col-12 text-center" data-anime='{ "translateY": [15, 0], "opacity": [0,1], "duration": 500, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
@@ -290,40 +334,40 @@
               We provide high quality, SETA aligned corporate training for South African businesses.
             </p>
             <div class="elements-social social-text-style-01 mt-9 xs-mt-15px">
-              <ul class="small-icon light fw-500">
-                <li>
-                  <a
-                    class="facebook"
-                    href="https://www.facebook.com/"
-                    target="_blank"
-                    >Fb.</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="instagram"
-                    href="http://www.instagram.com"
-                    target="_blank"
-                    >Ig.</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="twitter"
-                    href="http://www.twitter.com"
-                    target="_blank"
-                    >Tw.</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="behance"
-                    href="http://www.behance.com/"
-                    target="_blank"
-                    >Be.</a
-                  >
-                </li>
-              </ul>
+              <ul class="small-icon light">
+                      <li class="sm-mb-0">
+                        <a
+                          class="facebook"
+                          href="https://www.facebook.com/"
+                          target="_blank"
+                          ><i class="fa-brands fa-facebook-f"></i
+                        ></a>
+                      </li>
+                      <li class="sm-mb-0">
+                        <a
+                          class="twitter"
+                          href="http://www.twitter.com"
+                          target="_blank"
+                          ><i class="fa-brands fa-twitter"></i
+                        ></a>
+                      </li>
+                      <li class="sm-mb-0">
+                        <a
+                          class="instagram"
+                          href="http://www.instagram.com"
+                          target="_blank"
+                          ><i class="fa-brands fa-instagram"></i
+                        ></a>
+                      </li>
+                      <li class="sm-mb-0">
+                        <a
+                          class="linkedin"
+                          href="http://www.linkedin.com"
+                          target="_blank"
+                          ><i class="fa-brands fa-linkedin"></i
+                        ></a>
+                      </li>
+                    </ul>
             </div>
           </div>
           <!-- end footer column -->

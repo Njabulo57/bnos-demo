@@ -24,6 +24,27 @@ function callMoodleWS($moodle_url, $token, $wsfunction, $extraParams = []) {
     return json_decode($response, true);
 }
 
+// Add this helper somewhere above the try block
+function formatCourseDuration($startdate, $enddate): ?string {
+    if (!isset($startdate, $enddate) || $enddate <= 0 || $enddate <= $startdate) {
+        return null;
+    }
+
+    $days = (int)(($enddate - $startdate) / 86400);
+
+    if ($days >= 30) {
+        $months = round($days / 30.44); // avg days per month
+        return $months . ' ' . ($months === 1 ? 'month' : 'months');
+    }
+
+    if ($days >= 7) {
+        $weeks = round($days / 7);
+        return $weeks . ' ' . ($weeks === 1 ? 'week' : 'weeks');
+    }
+
+    return $days . ' ' . ($days === 1 ? 'day' : 'days');
+}
+
 try {
     // 1. Get enrolled courses via timeline classification
     $coursesResponse = callMoodleWS($moodle_url, $token,
@@ -87,6 +108,7 @@ try {
             'progress'     => $course['progress'] ?? 0,
             'studentCount' => $studentCount,
             'lessonCount'  => $lessonCount,
+            'duration' => formatCourseDuration($course['startdate'] ?? null, $course['enddate'] ?? null),
         ];
     }
 
